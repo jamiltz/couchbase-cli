@@ -9,6 +9,7 @@ function gen_docs {
 
   # Generate html
   asciidoc -b xhtml11 -d manpage --conf-file=../asciidoc.conf -o doc/${html_folder}/${name}.html ../${infile}
+  sed -i -e 's/<body/<body class="body"/g' doc/${html_folder}/${name}.html
 
   # Generate man
   asciidoc -b docbook -d manpage --conf-file=../asciidoc.conf -o tmp.xml ../${infile}
